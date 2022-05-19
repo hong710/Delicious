@@ -1,10 +1,15 @@
 import React from 'react'
 import {Card, CardMedia, CardContent, Typography, Button,CardActions} from '@mui/material';
-
+import { red, grey } from '@mui/material/colors';
 
 function FoodCard({recipe}) {
     return (
-        <Card  sx={{ maxWidth: 350, minHeight:300, margin:'0 0 1rem 0' }}>
+        <Card  elevation={0} sx={{ 
+            maxWidth: 350, 
+            minHeight:300, 
+            margin:'0 0 1rem 0',
+            border:`2px solid ${grey[300]}` 
+        }}>
             <CardMedia
                 component="img"
                 height="180"
@@ -13,7 +18,9 @@ function FoodCard({recipe}) {
             />
             <CardContent>
                 <Typography gutterBottom variant="body1" align='center' >
-                   <b>{recipe.title}</b>
+                   <b>
+                       {recipe.title}
+                    </b>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                    {}

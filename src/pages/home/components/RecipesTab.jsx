@@ -4,10 +4,15 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import Popular from '../../../components/Popular';
-import Veggie from '../../../components/Veggie';
+import SplideCard from '../../../components/SplideCards';
+
 
 export default function RecipesTab() {
+
+    const popularRecipes = 'recipes/random?number=10';
+    const veggieRecipes = 'recipes/random?number=10&tags=vegetarian';
+
+
   const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
@@ -15,7 +20,7 @@ export default function RecipesTab() {
   };
 
   return (
-    <Container sx={{ width: '100%' }}>
+    <Container sx={{ width: '100%', marginTop: '3rem' }}>
       <TabContext value={value} >
         <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
           <TabList 
@@ -24,19 +29,29 @@ export default function RecipesTab() {
             variant="fullWidth"
             indicatorColor="secondary"
             textColor="inherit"
+            
         >
-            <Tab label="Popular Recipes" value="1" />
-            <Tab label="Vegetarian Picks" value="2" />
-            <Tab label="30 Minutes Meal" value="3" />
+            <Tab label="Popular Recipes" value="1"  sx={{fontSize:'1.2rem'}}/>
+            <Tab label="Vegetarian Picks" value="2" sx={{fontSize:'1.2rem'}} />
+            <Tab label="30 Minutes Meal" value="3"  sx={{fontSize:'1.2rem'}}/>
+            <Tab label="30 Minutes Meal" value="4"  sx={{fontSize:'1.2rem'}}/>
           </TabList>
         </Box>
         <TabPanel value="1">
-            <Popular />
+            <SplideCard query ={popularRecipes} />
         </TabPanel>
+
         <TabPanel value="2">
-            <Veggie />
+            <SplideCard query ={veggieRecipes} />
         </TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
+
+        <TabPanel value="3">
+            Item Three
+        </TabPanel>
+
+        <TabPanel value="4">
+            Item Three
+        </TabPanel>
       </TabContext>
     </Container>
   );
