@@ -3,28 +3,15 @@ import { Box, Container, Typography } from '@mui/material';
 import FoodCard from './FoodCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import useFetch from '../hooks/useFetch';
 
 
 function Veggie() {
-    const [veggie, setVeggie] = useState([]);
-
-    useEffect(() => {
-        getVeggie();
-
-    }, [])
-
-    const getVeggie = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?number=10&tags=vegetarian&apiKey=${process.env.REACT_APP_API_KEY}`);
-        const data = await response.json();
-        setVeggie(data.recipes)
-    };
-    console.log(veggie);
-
+    const{data: veggie, isLoading, error} = useFetch(`https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.REACT_APP_API_KEY}`)  
 
     return (
         <Box sx={{marginTop:'2rem'}}>
             <Container>
-            <Typography variant='h4'>Veggie Dishes</Typography>
                 <Splide options={{
                     perPage:4,
                     arrows: false,

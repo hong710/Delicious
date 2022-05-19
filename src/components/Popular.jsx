@@ -3,28 +3,18 @@ import { Box, Container, Typography } from '@mui/material';
 import FoodCard from './FoodCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import useFetch from '../hooks/useFetch';
 
 
 function Popular() {
-    const [popular, setPopular] = useState([]);
+    
 
-    useEffect(() => {
-        getPopular();
-
-    }, [])
-
-    const getPopular = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.REACT_APP_API_KEY}`);
-        const data = await response.json();
-        setPopular(data.recipes)
-    };
-    console.log(popular);
+    const{data: popular, isLoading, error} = useFetch(`https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.REACT_APP_API_KEY}`)
 
 
     return (
         <Box sx={{marginTop:'2rem'}}>
             <Container>
-            <Typography variant='h4'>Popular Dishes</Typography>
                 <Splide options={{
                     perPage:4,
                     arrows: false,
@@ -32,7 +22,7 @@ function Popular() {
                     drag:'free',
                     gap: '2rem'
                 }}>
-                {
+                {popular&&
                     popular?.map((recipe) => {
                         return (
                             <SplideSlide key={recipe.id}>
