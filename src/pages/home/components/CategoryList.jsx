@@ -7,7 +7,7 @@ function CategoryList({image,title}) {
 
     const colorOpacity = 'rgba(239, 83, 80, .8)';
   return (
-    <Card sx={{maxWidth:280, position:"relative"}} elevation={0}>
+    <Card sx={{maxWidth:250, position:"relative"}} elevation={0}>
         <CardMedia
             component="img"
             src={image}
@@ -17,7 +17,7 @@ function CategoryList({image,title}) {
         >
         </CardMedia>
         
-        <Typography variant='h5' bgcolor={colorOpacity} color='white' p={1.5} align={'center'}
+        <Typography variant='h6' bgcolor={colorOpacity} color='white' p={1.5} align={'center'}
             sx={{
                 width:'100%',
                 position:'absolute',

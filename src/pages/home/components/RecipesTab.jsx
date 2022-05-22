@@ -9,8 +9,12 @@ import SplideCard from '../../../components/SplideCards';
 
 export default function RecipesTab() {
 
-    const popularRecipes = 'recipes/random?number=10';
-    const veggieRecipes = 'recipes/random?number=10&tags=vegetarian';
+    const numberOfItems= 4;
+
+    const popularRecipes = `recipes/complexSearch?diet=Paleo&number=${numberOfItems}&addRecipeNutrition=true`;
+    const veggieRecipes = `recipes/complexSearch?diet=vegetarian&number=${numberOfItems}&addRecipeNutrition=true`;
+    const ketoRecipes =  `recipes/complexSearch?diet=keto&number=20&addRecipeNutrition=true`;
+    const fastRecipes =  `recipes/complexSearch?maxReadyTime=30&number=${numberOfItems}&addRecipeNutrition=true`;
 
 
   const [value, setValue] = React.useState('1');
@@ -31,10 +35,10 @@ export default function RecipesTab() {
             textColor="inherit"
             
         >
-            <Tab label="Popular Recipes" value="1"  sx={{fontSize:'1.2rem'}}/>
-            <Tab label="Vegetarian Picks" value="2" sx={{fontSize:'1.2rem'}} />
-            <Tab label="30 Minutes Meal" value="3"  sx={{fontSize:'1.2rem'}}/>
-            <Tab label="30 Minutes Meal" value="4"  sx={{fontSize:'1.2rem'}}/>
+            <Tab label="Popular Recipes" value="1"  sx={{fontSize:'1.1rem'}}/>
+            <Tab label="Vegetarian Picks" value="2" sx={{fontSize:'1.1rem'}} />
+            <Tab label="Keto Recipes" value="3"  sx={{fontSize:'1.1rem'}}/>
+            <Tab label="30 Minutes Meal" value="4"  sx={{fontSize:'1.1rem'}}/>
           </TabList>
         </Box>
         <TabPanel value="1">
@@ -46,11 +50,11 @@ export default function RecipesTab() {
         </TabPanel>
 
         <TabPanel value="3">
-            Item Three
+            <SplideCard query ={ketoRecipes} />
         </TabPanel>
 
         <TabPanel value="4">
-            Item Three
+            <SplideCard query ={fastRecipes} />
         </TabPanel>
       </TabContext>
     </Container>

@@ -14,8 +14,13 @@ function useFetch({query}) {
     const fetchData = async () =>{
         const response = await fetch(url);
         const data = await response.json();
-        return data.recipes;     
-        
+
+        if(data.recipes){
+            return data.recipes;
+        }else{
+            return data.results;
+        }
+             
     }    
 
     useEffect(() => {

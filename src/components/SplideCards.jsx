@@ -24,7 +24,6 @@ function SplideCard({query}) {
                 }}>
                 {data&&
                     data?.map((recipe) => {
-
                         if(recipe.image){
                             return (
                                 <SplideSlide key={recipe.id}>
@@ -39,6 +38,7 @@ function SplideCard({query}) {
                 }
                 </Splide>
             </Container>
+            {console.log(data)}
         </Box>
     )
 }
