@@ -3,6 +3,7 @@ import {Box, Card, CardMedia, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
 
+
 function CategoryList({image,title}) {
 
     const colorOpacity = 'rgba(239, 83, 80, .8)';

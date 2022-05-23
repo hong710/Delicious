@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {Box, Container} from '@mui/material';
+import React, {useState} from 'react';
+import {Box, Container, CircularProgress} from '@mui/material';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -17,7 +17,8 @@ export default function RecipesTab() {
     const fastRecipes =  `recipes/complexSearch?maxReadyTime=30&number=${numberOfItems}&addRecipeNutrition=true`;
 
 
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = useState('1');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -41,20 +42,49 @@ export default function RecipesTab() {
             <Tab label="30 Minutes Meal" value="4"  sx={{fontSize:'1.1rem'}}/>
           </TabList>
         </Box>
-        <TabPanel value="1">
-            <SplideCard query ={popularRecipes} />
+        <TabPanel value="1" >
+            {
+            isLoading? 
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <CircularProgress color="secondary" sx={{alignContent:'center'}}/>
+                </Box>                
+            :null
+            }
+    
+            <SplideCard query ={popularRecipes} Loading = {setIsLoading}/>
         </TabPanel>
 
         <TabPanel value="2">
-            <SplideCard query ={veggieRecipes} />
+            {
+            isLoading? 
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <CircularProgress color="secondary" sx={{alignContent:'center'}}/>
+                </Box>                
+            :null
+            }                       
+            <SplideCard query ={veggieRecipes} Loading = {setIsLoading}/>
         </TabPanel>
 
-        <TabPanel value="3">
-            <SplideCard query ={ketoRecipes} />
+        <TabPanel value="3" >
+            {
+            isLoading? 
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <CircularProgress color="secondary" sx={{alignContent:'center'}}/>
+                </Box>                
+            :null
+            }
+            <SplideCard query ={ketoRecipes} Loading = {setIsLoading} />
         </TabPanel>
 
         <TabPanel value="4">
-            <SplideCard query ={fastRecipes} />
+            {
+            isLoading? 
+                <Box sx={{display:'flex', justifyContent:'center'}}>
+                    <CircularProgress color="secondary" sx={{alignContent:'center'}}/>
+                </Box>                
+            :null
+            }
+            <SplideCard query ={fastRecipes} Loading = {setIsLoading} />
         </TabPanel>
       </TabContext>
     </Container>

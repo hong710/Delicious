@@ -7,7 +7,7 @@ function FoodCard({recipe}) {
     return (
         <Card  elevation={0} sx={{ 
             maxWidth: 350, 
-            minHeight:450, 
+            minHeight:410, 
             margin:'0 0 1rem 0',
             border:`2px solid ${grey[300]}`,
             position: "relative"
@@ -23,8 +23,10 @@ function FoodCard({recipe}) {
                     {recipe.title}                    
                 </Typography>                
             </CardContent>
-            <Box mb= {1} sx={{
-                width:'100%'
+            <Box mb= {-.1} sx={{
+                width:'100%',
+                position:'absolute',
+                bottom:"0"
                 }}> 
                 
                 {/* <Chip label={`${recipe.calories} calories`}  color="warning" size="small" variant="outlined" sx={{marginTop:'.5rem'}}  /> */}
@@ -32,26 +34,26 @@ function FoodCard({recipe}) {
                 <Table size='small'>
                     <TableHead>
                         <TableRow>
-                            <TableCell> CaloricBreakdown</TableCell>
+                            <TableCell> Caloric Breakdown</TableCell>
                             <TableCell align='right'> Value</TableCell>
                         </TableRow>                      
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell component="th" scope="row">Percent Carb</TableCell>
-                            <TableCell align='right'>10%</TableCell>
+                            <TableCell component="th" scope="row">Percent Carb %</TableCell>
+                            <TableCell align='right'>{recipe.nutrition.caloricBreakdown.percentCarbs}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell component="th" scope="row">Percent Fat</TableCell>
-                            <TableCell align='right'>10%</TableCell>
+                            <TableCell component="th" scope="row">Percent Fat %</TableCell>
+                            <TableCell align='right'>{recipe.nutrition.caloricBreakdown.percentFat}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell component="th" scope="row">Percent Protein</TableCell>
-                            <TableCell align='right'>10%</TableCell>
+                            <TableCell component="th" scope="row">Percent Protein %</TableCell>
+                            <TableCell align='right'>{recipe.nutrition.caloricBreakdown.percentProtein}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell component="th" scope="row">Total Calorries</TableCell>
-                            <TableCell align='right'>500 kcal</TableCell>
+                            <TableCell component="th" scope="row">Total Calorries (kcal)</TableCell>
+                            <TableCell align='right'>{`${recipe.nutrition.nutrients[0].amount}`}</TableCell>
                         </TableRow>
 
                     </TableBody>
