@@ -1,20 +1,24 @@
 import React from 'react'
 import {Box, Card, CardMedia, Typography } from '@mui/material';
-import { grey } from '@mui/material/colors';
-
-
+import { useNavigate } from 'react-router-dom';
 
 function CategoryList({image,title}) {
 
+    const navigate = useNavigate();
     const colorOpacity = 'rgba(239, 83, 80, .8)';
   return (
-    <Card sx={{maxWidth:250, position:"relative"}} elevation={0}>
+    <Card sx={{maxWidth:250, position:"relative", cursor:'pointer'}} 
+        elevation={0}
+        onClick={()=> navigate(`list/${title.toLowerCase()}`)}
+
+    >
         <CardMedia
             component="img"
             src={image}
             sx={{
                 height:300,
             }}
+            
         >
         </CardMedia>
         
@@ -24,7 +28,8 @@ function CategoryList({image,title}) {
                 position:'absolute',
                 bottom:'0',
             }}
-        >{title.toUpperCase()}</Typography>
+        >
+            {title.toUpperCase()}</Typography>
         
         
     </Card>

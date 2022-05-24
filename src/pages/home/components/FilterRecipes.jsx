@@ -1,14 +1,14 @@
 import React from 'react'
 import {Container, Box, Typography, Avatar} from '@mui/material';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import {filterLists} from'../../../data';
+import {filterLists} from'../../../helper';
 
 
-function Hero() {
+function FilterRecipes() {
 
  
   return (
-    <Container>
+    <Container sx={{marginTop: '3rem'}}>
         <Splide 
             options={{    
                 perPage:6,
@@ -17,19 +17,20 @@ function Hero() {
                 drag:'free',
                 gap: '0rem',
                 rewind: true,
+                type   : 'loop',
             }}         
         >
             
-            {filterLists.map((item) =>{
+            {filterLists?.map((item) =>{
                 return (
-                <SplideSlide>
+                <SplideSlide key={item.name}>
                     <Box sx={{display:'flex', justifyContent:'center', alignItems:'center' , flexDirection:'column'}}>
                     <Avatar
                         alt="Remy Sharp"
                         src={item.img}
                         sx={{ width: 150, height: 150 }}
                     />                     
-                        <Typography>{item.name} </Typography>                        
+                        <Typography variant='body1' >{item.name} </Typography>                        
                     </Box>
                 </SplideSlide>
         
@@ -42,4 +43,4 @@ function Hero() {
   )    
 }
 
-export default Hero
+export default FilterRecipes

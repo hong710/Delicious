@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { red, grey } from '@mui/material/colors';
+import {Link} from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -41,15 +42,17 @@ const Navbar = () => {
     <AppBar position="static" sx={{bgcolor:grey[100], borderBottom: `1px solid ${grey[300]}`}} elevation={0} >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            color={red[500]}
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            LOGO
-          </Typography>
+          <Link to='/' style={{textDecoration:'none'}}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              color={red[500]}
+              sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            >
+              LOGO
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

@@ -6,32 +6,23 @@ import dinner from '../../../assets/dinner.jpg';
 import lunch from '../../../assets/lunch.jpg';
 import CategoryList from './CategoryList';
 
+import {CategoryItems} from '../../../helper';
+
 function Category() {
 	return (
-		<Container sx={{marginTop:'4rem'}}>
+		<Container sx={{marginTop:'3rem'}}>
 			<Box>
 				<Grid container spacing={3} >
-					<Grid item xs={3}>
-						<CategoryList image={appetizer} title={'Appetizer'}/>
-					</Grid>
-					<Grid item xs={3}>
-						 
-						<CategoryList image={breakfast} title={'Breakfast'}/>
-					</Grid>
-						<Grid item xs={3}>
-					<CategoryList image={lunch} title={'Lunch'}/>
 
-					</Grid>
-					<Grid item xs={3}>
-						<CategoryList image={dinner}  title={'Dinner'}/>
-						
-
-					</Grid>
+					{CategoryItems?.map((item)=>{
+						return(
+							<Grid item xs={3} key={item.name}>
+								<CategoryList image={item.img} title={item.name}/>
+							</Grid>
+						)
+					})}					
 				</Grid>
-
 			</Box>
-
-
 		</Container>
 	)
 }
