@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container, Box, Typography, Avatar} from '@mui/material';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import {filterLists} from'../../../helper';
+import {filterLists} from'../../helper';
 
 
 function FilterRecipes() {

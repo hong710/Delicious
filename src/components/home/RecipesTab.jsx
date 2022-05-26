@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import SplideCard from '../../../components/SplideCards';
+import SplideCard from './SplideCards';
 
 
 export default function RecipesTab() {

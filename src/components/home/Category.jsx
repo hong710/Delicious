@@ -1,12 +1,7 @@
 import React from 'react'
 import { Container, Box, Grid} from '@mui/material';
-import appetizer from '../../../assets/appetizer.jpg';
-import breakfast from '../../../assets/breakfast.jpg';
-import dinner from '../../../assets/dinner.jpg';
-import lunch from '../../../assets/lunch.jpg';
 import CategoryList from './CategoryList';
-
-import {CategoryItems} from '../../../helper';
+import {CategoryItems} from '../../helper';
 
 function Category() {
 	return (

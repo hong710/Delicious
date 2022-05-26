@@ -2,7 +2,7 @@ import React from 'react'
 import {Box, Card, CardMedia, CardContent, Typography} from '@mui/material';
 import { grey } from '@mui/material/colors';
 
-import appetizer from '../../../assets/appetizer.jpg';
+import appetizer from '../../assets/appetizer.jpg';
 function ItemRight({data}) {
   return (
     <Card  elevation={0} sx={{ 

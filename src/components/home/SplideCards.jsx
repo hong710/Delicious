@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import FoodCard from './FoodCard';
+import FoodCard from '../reusables/FoodCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import useFetch from '../hooks/useFetch';
-import {localStorageData} from '../helper';
+import useFetch from '../../hooks/useFetch';
+import {localStorageData} from '../../helper';
 
 
 function SplideCard({query, loading, name}) {
-    const{data, isLoading, error} = useFetch({query})
+    const{data, isLoading, error} = useFetch({query,title:name})
     const jsonData =  localStorageData(name, data);	//return either localStorage or fetch json data	
 
     return (
