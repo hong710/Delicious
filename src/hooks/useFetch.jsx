@@ -33,6 +33,7 @@ function useFetch({query}) {
     }, [query]);
 
     return {data, isLoading, error};
+    
   
 }
 
